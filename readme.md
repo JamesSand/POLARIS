@@ -15,7 +15,7 @@ evaluation/grade.py
 
 所以现在的解法是，存在 parquet 里边的时候用 str 的格式存，
 
-在 eval score 的时候，把这个东西转换回 list，只要 math 这个 list 里边的一个答案，就算对
+在 grade score 的时候，把这个东西转换回 list，只要 match 这个 list 里边的一个答案，就算对
 
 
 
