@@ -9,6 +9,9 @@
 **/playground
 **/wandb
 
+eval_outputs/
+fsdp_merged/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]

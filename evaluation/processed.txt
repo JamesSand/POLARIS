@@ -1,0 +1,60 @@
+
+================================================================================
+Properties of aime24_processed.parquet
+================================================================================
+data_source: test-math-aime24 (type: str)
+prompt: [{'content': 'Please reason step by step, and put your final answer within \\boxed{}.', 'role': 'system'}
+ {'content': "Every morning Aya goes for a $9$-kilometer-long walk and stops at a coffee shop afterwards. When she walks at a constant speed of $s$ kilometers per hour, the walk takes her 4 hours, including $t$ minutes spent in the coffee shop. When she walks $s+2$ kilometers per hour, the walk takes her 2 hours and 24 minutes, including $t$ minutes spent in the coffee shop. Suppose Aya walks at $s+\\frac{1}{2}$ kilometers per hour. Find the number of minutes the walk takes her, including the $t$ minutes spent in the coffee shop. Let's think step by step and output the final answer within \\boxed{}.", 'role': 'user'}] (type: ndarray)
+ability: math (type: str)
+reward_model.ground_truth: 204 (type: str)
+reward_model.style: rule (type: str)
+extra_info.index: 0 (type: int)
+extra_info.split: test (type: str)
+
+================================================================================
+Properties of aime25_processed.parquet
+================================================================================
+data_source: test-math-aime25 (type: str)
+prompt: [{'content': 'Please reason step by step, and put your final answer within \\boxed{}.', 'role': 'system'}
+ {'content': "Find the sum of all integer bases $b>9$ for which $17_{b}$ is a divisor of $97_{b}$. Let's think step by step and output the final answer within \\boxed{}.", 'role': 'user'}] (type: ndarray)
+ability: math (type: str)
+reward_model.ground_truth: 70 (type: str)
+reward_model.style: rule (type: str)
+extra_info.id: 0 (type: int)
+extra_info.split: test (type: str)
+
+================================================================================
+Properties of amc23_processed.parquet
+================================================================================
+data_source: test-math-amc23 (type: str)
+prompt: [{'content': 'Please reason step by step, and put your final answer within \\boxed{}.', 'role': 'system'}
+ {'content': "$\\frac{m}{n}$ is the Irreducible fraction value of \\[3+\\frac{1}{3+\\frac{1}{3+\\frac13}}\\], what is the value of $m+n$? Let's think step by step and output the final answer within \\boxed{}.", 'role': 'user'}] (type: ndarray)
+ability: math (type: str)
+reward_model.ground_truth: 142.0 (type: str)
+reward_model.style: rule (type: str)
+extra_info.index: 0 (type: int)
+extra_info.split: test (type: str)
+
+================================================================================
+Properties of minerva_processed.parquet
+================================================================================
+data_source: test-math-minerva (type: str)
+prompt: [{'content': 'Please reason step by step, and put your final answer within \\boxed{}.', 'role': 'system'}
+ {'content': "If the Bohr energy levels scale as $Z^{2}$, where $Z$ is the atomic number of the atom (i.e., the charge on the nucleus), estimate the wavelength of a photon that results from a transition from $n=3$ to $n=2$ in Fe, which has $Z=26$. Assume that the Fe atom is completely stripped of all its electrons except for one.  Give your answer in Angstroms, to two significant figures. Let's think step by step and output the final answer within \\boxed{}.", 'role': 'user'}] (type: ndarray)
+ability: math (type: str)
+reward_model.ground_truth: ['9.6\n'] (type: str)
+reward_model.style: rule (type: str)
+extra_info.index: 0 (type: int)
+extra_info.split: test (type: str)
+
+================================================================================
+Properties of olympiad_processed.parquet
+================================================================================
+data_source: test-math-olympiad (type: str)
+prompt: [{'content': 'Please reason step by step, and put your final answer within \\boxed{}.', 'role': 'system'}
+ {'content': "Xenia and Sergey play the following game. Xenia thinks of a positive integer $N$ not exceeding 5000. Then she fixes 20 distinct positive integers $a_{1}, a_{2}, \\ldots, a_{20}$ such that, for each $k=1,2, \\ldots, 20$, the numbers $N$ and $a_{k}$ are congruent modulo $k$. By a move, Sergey tells Xenia a set $S$ of positive integers not exceeding 20 , and she tells him back the set $\\left\\{a_{k}: k \\in S\\right\\}$ without spelling out which number corresponds to which index. How many moves does Sergey need to determine for sure the number Xenia thought of? Let's think step by step and output the final answer within \\boxed{}.", 'role': 'user'}] (type: ndarray)
+ability: math (type: str)
+reward_model.ground_truth: ['2'] (type: str)
+reward_model.style: rule (type: str)
+extra_info.index: 0 (type: int)
+extra_info.split: test (type: str)

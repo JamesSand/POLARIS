@@ -32,7 +32,19 @@ def get_diverse_score(sequences, n=4):
 
 
 def process_jsonl_file(file_name):
-    results = [{"gt": None, "responses":[]} for i in range(30)]
+    # Zhizhou: originally, here only support 30 questions, I extend this to support benchmarks other than aime24 25
+    max_id = -1
+    with open(file_name) as f:
+        for line in f:
+            data = json.loads(line)
+            id = int(data["example_id"])
+            max_id = max(max_id, id)
+    
+    # Initialize results based on max_id
+    results = [{"gt": None, "responses":[]} for i in range(max_id + 1)]
+    # Zhizhou: end
+    
+    # Second pass: populate results
     with open(file_name) as f:
         for line in f:
             data = json.loads(line)
@@ -89,7 +101,25 @@ for i in range(len(df)):
         response_lengths = [0]
     not_formated = ["boxed" not in response for response in responses_list]
     without_boxed += sum(not_formated)
-    scores = [grade_answer_verl(response, gt) for response in responses_list]
+    # scores = [grade_answer_verl(response, gt) for response in responses_list]
+
+    # Zhizhou: I chage this to support list answer in minerva math and olympiad math
+
+    if "[" in str(gt) and "]" in str(gt):
+        gt = eval(gt)  # convert string representation of list to actual list
+
+    if isinstance(gt, (list, tuple)):
+        gt_list = [g for g in gt if g]  # drop empty
+    else:
+        gt_list = [gt]
+
+    scores = []
+    for response in responses_list:
+        # True if matches any GT
+        score = any(grade_answer_verl(response, g) for g in gt_list)
+        scores.append(score)
+    # Zhizhou: fix end
+
     diverse.append(get_diverse_score(responses_list))
     avg_score = sum(scores) / len(scores)
     avg_scores.append(avg_score)
