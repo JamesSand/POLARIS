@@ -26,7 +26,7 @@ DATASETS=(
   "evaluation/benchmarks/processed/aime25_processed.parquet|32"
   "evaluation/benchmarks/processed/minerva_processed.parquet|4"
   "evaluation/benchmarks/processed/olympiad_processed.parquet|4"
-  "evaluation/benchmarks/processed/amc23_processed.parquet|4"
+  "evaluation/benchmarks/processed/amc23_processed.parquet|8"
 )
 
 for item in "${DATASETS[@]}"; do
