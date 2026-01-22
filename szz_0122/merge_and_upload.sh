@@ -6,8 +6,6 @@ set -x
 # Hard-coded config (edit here only)
 ###############################################################################
 
-export HF_TOKEN=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
-
 # 1) Which experiment directories to process (root folders that contain global_step_*/actor)
 # Put as many as you want. NO CLI args needed.
 EXPERIMENT_DIRS=(
