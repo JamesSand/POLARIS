@@ -1,6 +1,13 @@
 
 
-真的是服了hhh
+grading 的 code 在这里
+
+evaluation/grade.py
+
+和原始的 polaris 相比只修复了两个地方
+1 原始的 grading 只支持 30 question 的 eval（只支持 aime 的 eval），我扩展到了支持任意数量的 question
+2 原始的 grading 里边只支持一个 gt，现在改成了支持一个 list 传进来的 gt
+
 
 这个 minerva 和 olympiad ground truth 是 list
 
