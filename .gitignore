@@ -12,6 +12,8 @@
 eval_outputs/
 fsdp_merged/
 
+szz_eval_outputs/
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
