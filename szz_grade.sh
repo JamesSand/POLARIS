@@ -3,7 +3,7 @@
 export PYTHONPATH="$(pwd):${PYTHONPATH:-}"
 
 # 找到 folder 下边的所有子文件夹
-EVAL_OUTPUTS_DIR="/scratch/10922/zhsha/workspace/rotation-project/POLARIS/eval_outputs"
+EVAL_OUTPUTS_DIR="./szz_eval_outputs"
 mapfile -t FOLDERS < <(find "$EVAL_OUTPUTS_DIR" -mindepth 1 -maxdepth 1 -type d | sort)
 
 
