@@ -1,2 +1,5 @@
 === Fri Jan 23 06:01:49 PM CST 2026 | aime24_processed | n=32 ===
 === Fri Jan 23 06:08:40 PM CST 2026 | aime25_processed | n=32 ===
+=== Fri Jan 23 06:15:36 PM CST 2026 | minerva_processed | n=4 ===
+=== Fri Jan 23 06:18:18 PM CST 2026 | olympiad_processed | n=4 ===
+=== Fri Jan 23 06:22:00 PM CST 2026 | amc23_processed | n=8 ===
