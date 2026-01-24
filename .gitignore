@@ -10,6 +10,9 @@
 **/wandb
 
 eval_outputs/
+
+
+hf_cache/
 fsdp_merged/
 
 szz_eval_outputs/
