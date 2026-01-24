@@ -13,12 +13,12 @@ k=${k:--1}
 num_gpus=${num_gpus:-4}
 
 timestamp="$(date +"%Y%m%d_%H%M%S")"
-OUT_DIR="./eval_outputs/${model_basename}-t${t}-maxlen${max_length}-p${p}-k${k}-${timestamp}"
+OUT_DIR="./szz_eval_outputs/${model_basename}-t${t}-maxlen${max_length}-p${p}-k${k}-${timestamp}"
 mkdir -p "$OUT_DIR"
 RESULT_TXT="${OUT_DIR}/result.txt"
 touch "$RESULT_TXT"
 
-export PYTHONPATH="/scratch/10922/zhsha/workspace/rotation-project/POLARIS:${PYTHONPATH:-}"
+export PYTHONPATH="$(pwd):${PYTHONPATH:-}"
 
 # 每行：eval_file|n
 DATASETS=(
