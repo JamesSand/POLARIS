@@ -8,8 +8,9 @@ mkdir -p "$HF_HOME"
 
 # qwen models
 models=(
-    "/scratch/10922/zhsha/workspace/rotation-project/Lucky_RL/hf_models/Qwen3-1.7B-Base"
-    "/scratch/10922/zhsha/workspace/rotation-project/POLARIS/fsdp_merged/qwen3-4b-base-adam-2e-6-bs128-kl0.0-global_step_200"
+    # "/scratch/10922/zhsha/workspace/rotation-project/Lucky_RL/hf_models/Qwen3-1.7B-Base"
+    # "/scratch/10922/zhsha/workspace/rotation-project/POLARIS/fsdp_merged/qwen3-4b-base-adam-2e-6-bs128-kl0.0-global_step_200"
+    "JameSand/qwen3-4b-base-adam-1e-6-bs128-kl0.0-global_step_200"
 )
 
 for model_path in "${models[@]}"; do
@@ -21,6 +22,14 @@ models=(
     "/scratch/10922/zhsha/workspace/rotation-project/Lucky_RL/hf_models/DeepSeek-R1-Distill-Qwen-1.5B"
     "JameSand/ds-adam-1e-6-global_step_200"
     "JameSand/ds-svd-muon-adam-1e-6-global_step_200"
+    "JameSand/ds-adam-1e-6-global_step_160"
+    "JameSand/ds-svd-muon-adam-1e-6-global_step_160"
+    "JameSand/ds-adam-1e-6-global_step_120"
+    "JameSand/ds-svd-muon-adam-1e-6-global_step_120"
+    "JameSand/ds-adam-1e-6-global_step_80"
+    "JameSand/ds-svd-muon-adam-1e-6-global_step_80"
+    "JameSand/ds-adam-1e-6-global_step_40"
+    "JameSand/ds-svd-muon-adam-1e-6-global_step_40"
     "JameSand/ds-adam-2e-6-global_step_200"
     "JameSand/ds-adam-3e-6-global_step_200"
 )

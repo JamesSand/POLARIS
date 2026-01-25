@@ -114,7 +114,11 @@ def worker_process(args_tuple):
     os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu_id)
     print(f"[GPU {gpu_id}] seeds={seed_list} | loading model...", flush=True)
 
-    llm = LLM(model=MODEL_PATH, enforce_eager=True)
+    llm = LLM(
+        model=MODEL_PATH, 
+        enforce_eager=True,
+        gpu_memory_utilization=0.6,
+        )
     results = []
 
     for seed in seed_list:

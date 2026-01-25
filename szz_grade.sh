@@ -15,9 +15,12 @@ mapfile -t FOLDERS < <(find "$EVAL_OUTPUTS_DIR" -mindepth 1 -maxdepth 1 -type d 
 
 for d in "${FOLDERS[@]}"; do
   RESULT_TXT="$d/grade.txt"
-#   如果存在就删除
+
   if [ -f "$RESULT_TXT" ]; then
-    rm "$RESULT_TXT"
+  # 如果存在就跳过
+    continue
+# #   如果存在就删除
+#     rm "$RESULT_TXT"
   fi
 
   for f in "$d"/*.jsonl; do

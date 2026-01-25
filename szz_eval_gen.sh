@@ -12,8 +12,7 @@ p=${p:-0.8}
 k=${k:--1}
 num_gpus=${num_gpus:-4}
 
-timestamp="$(date +"%Y%m%d_%H%M%S")"
-OUT_DIR="./szz_eval_outputs/${model_basename}-t${t}-maxlen${max_length}-p${p}-k${k}-${timestamp}"
+OUT_DIR="./szz_eval_outputs/${model_basename}-t${t}-maxlen${max_length}-p${p}-k${k}"
 mkdir -p "$OUT_DIR"
 RESULT_TXT="${OUT_DIR}/result.txt"
 touch "$RESULT_TXT"
