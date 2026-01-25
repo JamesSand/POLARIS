@@ -34,6 +34,8 @@ parser.add_argument("--experiment_name", type=str, default="szz-eval")
 parser.add_argument("--outpath", type=str, default="evaluation/results")
 parser.add_argument("--eval_file", type=str, default="evaluation/benchmarks/aime24.parquet")
 parser.add_argument("--num_gpus", type=int, default=4)
+# add gpu memory utilization flag later if needed
+parser.add_argument("--gpu_memory_utilization", type=float, default=0.6)
 
 args = parser.parse_args()
 
@@ -117,7 +119,7 @@ def worker_process(args_tuple):
     llm = LLM(
         model=MODEL_PATH, 
         enforce_eager=True,
-        gpu_memory_utilization=0.6,
+        gpu_memory_utilization=args.gpu_memory_utilization,
         )
     results = []
 

@@ -11,7 +11,7 @@ t=${t:-1.0}
 p=${p:-0.8}
 k=${k:--1}
 num_gpus=${num_gpus:-4}
-
+gpu_memory_utilization=${gpu_memory_utilization:-0.6}
 OUT_DIR="./szz_eval_outputs/${model_basename}-t${t}-maxlen${max_length}-p${p}-k${k}"
 mkdir -p "$OUT_DIR"
 RESULT_TXT="${OUT_DIR}/result.txt"
@@ -34,6 +34,12 @@ for item in "${DATASETS[@]}"; do
     eval_name="$(basename "$eval_file" .parquet)"
     out_path="${OUT_DIR}/${eval_name}.jsonl"
 
+    # 如果存在就 continue
+    if [[ -f "$out_path" ]]; then
+        echo "=== $(date) | ${eval_name} already exists, skip ===" >> "$RESULT_TXT"
+        continue
+    fi
+
     echo "=== $(date) | ${eval_name} | n=${n} ===" >> "$RESULT_TXT"
 
     python scripts/eval/eval_vllm.py \
@@ -45,6 +51,7 @@ for item in "${DATASETS[@]}"; do
     --k "$k" \
     --eval_file "$eval_file" \
     --num_gpus "$num_gpus" \
+    --gpu_memory_utilization "$gpu_memory_utilization" \
     --outpath "$out_path"
 
     # python evaluation/grade.py --file_name "$out_path" >> "$RESULT_TXT" 2>&1
