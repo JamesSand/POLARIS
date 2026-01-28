@@ -11,6 +11,8 @@
 
 eval_outputs/
 
+paste.txt
+
 
 hf_cache/
 fsdp_merged/

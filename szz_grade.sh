@@ -18,9 +18,9 @@ for d in "${FOLDERS[@]}"; do
 
   if [ -f "$RESULT_TXT" ]; then
   # 如果存在就跳过
-    continue
-# #   如果存在就删除
-#     rm "$RESULT_TXT"
+    # continue
+#   如果存在就删除
+    rm "$RESULT_TXT"
   fi
 
   for f in "$d"/*.jsonl; do

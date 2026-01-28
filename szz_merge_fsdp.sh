@@ -15,12 +15,23 @@ model_roots=(
   # "/fast/sliu/zhizhou/workspace/rotation-project/Lucky_RL/ckpts_verl/debug0110/qwen3-1.7b-base-adam-2e-6-bs128-kl0.0"
   # "/fast/sliu/zhizhou/workspace/rotation-project/Lucky_RL/ckpts_verl/debug0110/qwen3-1.7b-base-adam-3e-6-bs128-kl0.0"
   # "/fast/sliu/zhizhou/workspace/rotation-project/Lucky_RL/ckpts_verl/debug0110/qwen3-1.7b-base-svd-muon-adam-1e-6-bs128-kl0.0"
-  "/scratch/10922/zhsha/workspace/rotation-project/Lucky_RL/ckpts_verl/stampede3-exp/qwen3-4b-base-adam-2e-6-bs128-kl0.0"
+  # "/scratch/10922/zhsha/workspace/rotation-project/Lucky_RL/ckpts_verl/stampede3-exp/qwen3-4b-base-adam-2e-6-bs128-kl0.0"
+  "/scratch/10922/zhsha/workspace/rotation-project/Lucky_RL/ckpts_verl/stampede3-exp/qwen3-4b-base-svd-muon-adam-1e-6-adamlr-1e-6-bs128-kl0.0"
+  "/scratch/10922/zhsha/workspace/rotation-project/Lucky_RL/ckpts_verl/stampede3-exp/qwen3-4b-base-adam-1e-6"
 )
 
 # 这里放要 upload 的 checkpoints 的 steps
 steps=(
   200
+  180
+  160
+  140
+  120
+  100
+  80
+  60
+  40
+  20
 )
 
 # steps=(
@@ -63,6 +74,12 @@ for d in "${inputs[@]}"; do
   step="$(basename "$(dirname "$d")")"
   name="${exp}-${step}"
   out="${fsdp_merged_dir}/${name}"
+
+  # if exists, skip
+  if [ -d "$out" ]; then
+    echo "[INFO] already exists, skip: $out"
+    continue
+  fi
 
   python -m verl.model_merger merge --backend fsdp --local_dir "$d" --target_dir "$out"
 
