@@ -1,6 +1,16 @@
 #!/usr/bin/env bash
 set -e
 
+# Zhizhou: we need to add the vllm deterministic flag here
+
+use_eager_inference=True
+export VLLM_ENABLE_V1_MULTIPROCESSING=0
+export VLLM_ATTENTION_BACKEND=FLASH_ATTN
+export CUBLAS_WORKSPACE_CONFIG=:4096:8
+export PYTHONHASHSEED=0
+
+# Zhizhou: end
+
 export LD_LIBRARY_PATH="$CONDA_PREFIX/lib:$LD_LIBRARY_PATH"
 
 model_path=${model_path:-"/scratch/10922/zhsha/workspace/rotation-project/Lucky_RL/hf_models/Qwen3-4B-Base"}
@@ -21,11 +31,12 @@ export PYTHONPATH="$(pwd):${PYTHONPATH:-}"
 
 # 每行：eval_file|n
 DATASETS=(
-  "evaluation/benchmarks/processed/aime24_processed.parquet|32"
-  "evaluation/benchmarks/processed/aime25_processed.parquet|32"
-  "evaluation/benchmarks/processed/minerva_processed.parquet|4"
-  "evaluation/benchmarks/processed/olympiad_processed.parquet|4"
-  "evaluation/benchmarks/processed/amc23_processed.parquet|8"
+#   "evaluation/benchmarks/processed/aime24_processed.parquet|32"
+#   "evaluation/benchmarks/processed/aime25_processed.parquet|32"
+#   "evaluation/benchmarks/processed/minerva_processed.parquet|4"
+#   "evaluation/benchmarks/processed/olympiad_processed.parquet|4"
+#   "evaluation/benchmarks/processed/amc23_processed.parquet|8"
+  "evaluation/benchmarks/processed/aime24_processed.parquet|1"
 )
 
 for item in "${DATASETS[@]}"; do
