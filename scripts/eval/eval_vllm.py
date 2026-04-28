@@ -117,7 +117,7 @@ def worker_process(args_tuple):
     print(f"[GPU {gpu_id}] seeds={seed_list} | loading model...", flush=True)
 
     llm = LLM(
-        model=MODEL_PATH, 
+        model=MODEL_PATH,
         enforce_eager=True,
         gpu_memory_utilization=args.gpu_memory_utilization,
         )
@@ -155,6 +155,7 @@ def main():
     samples = load_samples(EVAL_FILE)
 
     # 2. Generate N distinct random seeds and split across 8 GPUs
+    random.seed(0)
     random_seeds = random.sample(range(2**31 - 1), N)  # unique & shuffled
     num_workers = args.num_gpus
     seed_chunks = split_seeds(random_seeds, num_workers)

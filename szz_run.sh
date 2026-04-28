@@ -15,7 +15,7 @@ models=(
 max_length=$((1024 * 4))
 
 for model_path in "${models[@]}"; do
-    model_path=$model_path num_gpus=1 gpu_memory_utilization=0.95 max_length=$max_length bash szz_eval_gen.sh
+    model_path=$model_path num_gpus=2 gpu_memory_utilization=0.95 max_length=$max_length bash szz_eval_gen.sh
 done
 
 
