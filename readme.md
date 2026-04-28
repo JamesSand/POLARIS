@@ -11,8 +11,7 @@
 
 ### 2 grading answer
 
-在 [szz_grade.sh](./szz_grade.sh) 会自动把 szz_eval_outputs 下边没有 grade.txt 的所有文件都 grade 一遍
-
+在 [szz_grade.sh](./szz_grade.sh) 会自动把 szz_eval_outputs 下边有生成结果，没有 grade.txt 的所有文件都 grade 一遍
 
 ### 3 collect answer
 
