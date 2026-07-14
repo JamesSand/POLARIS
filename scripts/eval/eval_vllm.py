@@ -113,8 +113,14 @@ def worker_process(args_tuple):
     args_tuple = (samples, seed_list, gpu_id)
     """
     samples, seed_list, gpu_id = args_tuple
-    os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu_id)
-    print(f"[GPU {gpu_id}] seeds={seed_list} | loading model...", flush=True)
+    # respect an externally set CUDA_VISIBLE_DEVICES: gpu_id indexes into the
+    # parent's visible list instead of clobbering it with an absolute id
+    _parent_cvd = os.environ.get("CUDA_VISIBLE_DEVICES", "").strip()
+    if _parent_cvd:
+        os.environ["CUDA_VISIBLE_DEVICES"] = _parent_cvd.split(",")[gpu_id]
+    else:
+        os.environ["CUDA_VISIBLE_DEVICES"] = str(gpu_id)
+    print(f"[GPU {gpu_id} -> phys {os.environ['CUDA_VISIBLE_DEVICES']}] seeds={seed_list} | loading model...", flush=True)
 
     llm = LLM(
         model=MODEL_PATH,
